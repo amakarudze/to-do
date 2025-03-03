@@ -3,11 +3,11 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                sh 'python3 -m pytest --cov-report term --cov-report xml:coverage.xml --cov=to-do'
+                sh 'python3 -m pytest --junit-xml test-reports/results.xml'
             }
             post {
                 always {
-                    junit 'test-reports/results.xml', skipPublishingChecks: true
+                    junit 'test-reports/results.xml'
                 }
             }
 
