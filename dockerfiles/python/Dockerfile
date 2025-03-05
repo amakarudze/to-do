@@ -12,6 +12,8 @@ ENV PATH="/opt/venv/bin:$PATH"
 
 RUN pip install docker-py feedparser nosexcover prometheus_client pycobertura pylint pytest pytest-cov requests setuptools sphinx pyinstaller
 
+RUN pip install -r requirements.txt
+
 RUN echo "PATH=${PATH}" >> /etc/environment
 
 RUN chown -R jenkins:jenkins "${JENKINS_AGENT_HOME}"
