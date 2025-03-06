@@ -4,7 +4,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'python3 --version'
-                sh 'visudo /opt/venv/bin/activate'
+                sh 'pip3 install -r requirements.txt'
                 sh 'python -m py_compile to-do/'
                 stash(name: 'compiled-results', includes: 'to-do/*.py*')
             }
