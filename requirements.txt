@@ -5,7 +5,7 @@ certifi==2025.1.31
 cfgv==3.4.0
 coverage==7.6.12
 distlib==0.3.9
-Django==4.2
+Django<=4.2,<5.0
 filelock==3.17.0
 h11==0.14.0
 identify==2.6.8
