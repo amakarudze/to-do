@@ -3,6 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                sh 'cd to-do'
                 sh 'python3 -m build'
                 stash(name: 'compiled-results', includes: 'to-do/*.py*')
             }
