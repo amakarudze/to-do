@@ -1,15 +1,9 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
-            steps {
-                sh 'cd to-do'
-                sh 'python3 -m build'
-                stash(name: 'compiled-results', includes: 'to-do/*.py*')
-            }
-        }
         stage('Test') {
             steps {
+                sh 'cd to-do'
                 sh 'pytest --junit-xml test-reports/results.xml'
             }
             post {
