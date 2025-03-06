@@ -21,13 +21,13 @@ pipeline {
         stage('Install dependencies') {
             steps {
                 script {
+                    sh 'ssh git@github.com'
                     sh '. $PYTHON_VENV/bin/activate && pip install -r requirements.txt'
                 }
             }
         }
         stage('Run Migrations') {
             steps {
-                checkout scm
                 script {
                     sh '. $PYTHON_VENV/bin/activate && python manage.py migrate'
                 }
