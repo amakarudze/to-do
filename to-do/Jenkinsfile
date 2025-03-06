@@ -5,6 +5,11 @@ pipeline {
         PYTHON_VENV = 'venv'
     }
     stages{
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
         stage('Set up Python Environment'){
             steps {
                 script {
