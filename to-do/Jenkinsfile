@@ -21,7 +21,7 @@ pipeline {
         stage('Install dependencies') {
             steps {
                 script {
-                    sh 'ssh git@github.com'
+                    sh 'ssh -T git@github.com'
                     sh '. $PYTHON_VENV/bin/activate && pip install -r requirements.txt'
                 }
             }
