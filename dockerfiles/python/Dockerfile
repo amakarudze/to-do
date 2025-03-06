@@ -6,7 +6,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 RUN ln -s /usr/bin/python3 /usr/bin/python
 
-RUN python3 -m venv /opt/venv
+RUN python3 -m venv /opt/venv \
+    && source /opt/venv/bin/activate
 
 ENV PATH="/opt/venv/bin:$PATH"
 
