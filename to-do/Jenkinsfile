@@ -1,19 +1,10 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
-            steps {
-                sh 'python3 --version'
-                sh 'pip3 install -r requirements.txt --user'
-                sh 'python -m py_compile to-do/'
-                stash(name: 'compiled-results', includes: 'to-do/*.py*')
-            }
-        }
         stage('Test') {
             steps {
-                sh 'python3 -m venv .venv'
-                sh 'source .venv/bin/activate'
-                sh 'pip install -r requirements.txt'
+                sh 'apt install python3.11-venv'
+                sh 'python3 -m venv /opt/.venv && source /opt/.venv/bin/activate'
                 sh 'cd to-do'
                 sh 'py.test --junit-xml test-reports/results.xml'
             }
