@@ -27,6 +27,7 @@ pipeline {
         }
         stage('Run Migrations') {
             steps {
+                checkout scm
                 script {
                     sh '. $PYTHON_VENV/bin/activate && python manage.py migrate'
                 }
