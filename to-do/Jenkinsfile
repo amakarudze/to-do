@@ -3,7 +3,7 @@ pipeline {
     environment {
         DJANGO_SETTINGS_MODULE = "app.settings"
         PYTHON_VENV = 'venv'
-        GIT_SSH_KEY = credentials('jenkins-ssh-key')
+        GIT_SSH_KEY = credentials('jenkins-ssh-agent-private-key')
     }
     stages{
         stage('Checkout') {
