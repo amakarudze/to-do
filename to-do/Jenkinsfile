@@ -18,6 +18,7 @@ pipeline {
                     sh 'ssh-keyscan -H github.com >> ~/.ssh/known_hosts'  
                     sh 'git clone git@github.com:amakarudze/to-do.git'  
                 }
+            }
         }
         stage('Set up Python Environment'){
             steps {
