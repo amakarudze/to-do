@@ -1,6 +1,12 @@
 pipeline {
     agent any
     stages {
+        stage('Build') {
+            steps {
+                sh 'python -m py_compile to-do/'
+                stash(name: 'compiled-results', includes: 'to-do/*.py*')
+            }
+        }
         stage('Test') {
             steps {
                 sh 'python3 -m venv .venv'
