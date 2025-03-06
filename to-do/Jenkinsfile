@@ -8,8 +8,6 @@ pipeline {
     stages{
         stage('Checkout') {
             steps {
-                checkout scm
-            }
             script {
                 withCredentials([sshUserPrivateKey(credentialsId: 'jenkins-ssh-agent-private-key', keyFileVariable: 'SSH_KEY')]) {
                     sh 'mkdir -p ~/.ssh'
