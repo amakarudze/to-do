@@ -37,7 +37,7 @@ jobs:
           cd to-do
           poetry install
       - name: Prepare Selenium
-        uses: nanasess/setup-chromedriver@v1.0.5
+        uses: nanasess/setup-chromedriver@v2.3.0
       - name: Start XVFB
         run: |
           Xvfb :99 &
