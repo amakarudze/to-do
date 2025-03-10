@@ -1,4 +1,4 @@
-FROM jenkins/ssh-agent:6.9.0 as ssh-agent
+FROM jenkins/ssh-agent:6.10.0 as ssh-agent
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     binutils ca-certificates curl git python3 python3-venv python3-pip python3-setuptools python3-wheel python3-dev wget \
