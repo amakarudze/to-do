@@ -35,3 +35,9 @@ def test_update_task_post(user_client, task_2, task_form_valid):
         reverse("tasks:update_task", args=(task_2.id,)), data=task_form_valid
     )
     assert response.status_code == 302
+
+
+# Test for view task
+def test_view_task(user_client, task):
+    response = user_client.get(reverse("tasks:task", args=(task.id,)))
+    assert response.status_code == 200
